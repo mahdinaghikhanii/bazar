@@ -1,3 +1,4 @@
+import 'package:bazar/pages/auth/login.dart';
 import 'package:bazar/pages/onboarding/widgets/first.dart';
 import 'package:bazar/pages/onboarding/widgets/secound.dart';
 import 'package:bazar/pages/onboarding/widgets/therd.dart';
@@ -71,7 +72,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 onPressed: () {
                   pageIndex = pageIndex + 1;
                   pageController.nextPage(
-                      duration: const Duration(seconds: 1),
+                      duration: const Duration(seconds: 0),
                       curve: Curves.easeInExpo);
                   setState(() {});
                 },
@@ -95,7 +96,8 @@ class _OnBoardingState extends State<OnBoarding> {
                       borderRadius: BorderRadius.circular(12), // <-- Radius
                     ),
                     backgroundColor: const Color(0xFFF9F8FC)),
-                onPressed: () {},
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const LoginPage())),
                 child: const Center(
                     child: Text("Sign in",
                         style: TextStyle(
