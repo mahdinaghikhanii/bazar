@@ -1,4 +1,4 @@
-import 'package:bazar/pages/auth/login.dart';
+import 'package:bazar/pages/auth/login/login.dart';
 import 'package:bazar/pages/onboarding/widgets/first.dart';
 import 'package:bazar/pages/onboarding/widgets/secound.dart';
 import 'package:bazar/pages/onboarding/widgets/therd.dart';
