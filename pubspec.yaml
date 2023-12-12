@@ -39,7 +39,9 @@ dependencies:
   pin_code_fields: ^8.0.1
   get: ^4.6.6
   svg_flutter: ^0.0.1
+  http: ^1.1.0
   confetti: ^0.7.0
+
 
 dev_dependencies:
   flutter_test:

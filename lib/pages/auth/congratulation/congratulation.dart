@@ -67,8 +67,10 @@ class _CongratulationPageState extends State<CongratulationPage> {
         ConfettiController(duration: const Duration(seconds: 4));
     _controllerBottomCenter =
         ConfettiController(duration: const Duration(seconds: 2));
-
-    playAnimation();
+    Future.delayed(const Duration(seconds: 2)).then((value) {
+      playAnimation();
+      setState(() {});
+    });
   }
 
   playAnimation() {
