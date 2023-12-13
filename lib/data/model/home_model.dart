@@ -94,7 +94,7 @@ class VolumeInfo {
   ReadingModes? readingModes;
   int? pageCount;
   String? printType;
-  double? averageRating;
+  // int? averageRating;
   int? ratingsCount;
   String? maturityRating;
   bool? allowAnonLogging;
@@ -113,7 +113,7 @@ class VolumeInfo {
       this.readingModes,
       this.pageCount,
       this.printType,
-      this.averageRating,
+      //   this.averageRating,
       this.ratingsCount,
       this.maturityRating,
       this.allowAnonLogging,
@@ -134,7 +134,7 @@ class VolumeInfo {
         : null;
     pageCount = json['pageCount'];
     printType = json['printType'];
-    averageRating = json['averageRating'];
+    // averageRating = json['averageRating'].toDouble();
     ratingsCount = json['ratingsCount'];
     maturityRating = json['maturityRating'];
     allowAnonLogging = json['allowAnonLogging'];
@@ -161,7 +161,7 @@ class VolumeInfo {
     }
     data['pageCount'] = pageCount;
     data['printType'] = printType;
-    data['averageRating'] = averageRating;
+    // data['averageRating'] = averageRating;
     data['ratingsCount'] = ratingsCount;
     data['maturityRating'] = maturityRating;
     data['allowAnonLogging'] = allowAnonLogging;
@@ -241,13 +241,27 @@ class SaleInfo {
   String? country;
   String? saleability;
   bool? isEbook;
+  ListPriceAmount? listPrice;
+  ListPrice? retailPrice;
+  List<Offers>? offers;
 
   SaleInfo({this.country, this.saleability, this.isEbook});
-
   SaleInfo.fromJson(Map<String, dynamic> json) {
     country = json['country'];
     saleability = json['saleability'];
     isEbook = json['isEbook'];
+    listPrice = json['listPrice'] != null
+        ? ListPriceAmount.fromJson(json['listPrice'])
+        : null;
+    retailPrice = json['retailPrice'] != null
+        ? ListPrice.fromJson(json['retailPrice'])
+        : null;
+    if (json['offers'] != null) {
+      offers = <Offers>[];
+      json['offers'].forEach((v) {
+        offers!.add(Offers.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -255,6 +269,74 @@ class SaleInfo {
     data['country'] = country;
     data['saleability'] = saleability;
     data['isEbook'] = isEbook;
+    return data;
+  }
+}
+
+class Offers {
+  int? finskyOfferType;
+  ListPrice? listPrice;
+  ListPrice? retailPrice;
+
+  Offers({this.finskyOfferType, this.listPrice, this.retailPrice});
+
+  Offers.fromJson(Map<String, dynamic> json) {
+    finskyOfferType = json['finskyOfferType'];
+    listPrice = json['listPrice'] != null
+        ? ListPrice.fromJson(json['listPrice'])
+        : null;
+    retailPrice = json['retailPrice'] != null
+        ? ListPrice.fromJson(json['retailPrice'])
+        : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['finskyOfferType'] = finskyOfferType;
+    if (listPrice != null) {
+      data['listPrice'] = listPrice!.toJson();
+    }
+    if (retailPrice != null) {
+      data['retailPrice'] = retailPrice!.toJson();
+    }
+    return data;
+  }
+}
+
+class ListPriceAmount {
+  double? amount;
+  String? currencyCode;
+
+  ListPriceAmount({this.amount, this.currencyCode});
+
+  ListPriceAmount.fromJson(Map<String, dynamic> json) {
+    amount = json['amount'];
+    currencyCode = json['currencyCode'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['amount'] = amount;
+    data['currencyCode'] = currencyCode;
+    return data;
+  }
+}
+
+class ListPrice {
+  int? amountInMicros;
+  String? currencyCode;
+
+  ListPrice({this.amountInMicros, this.currencyCode});
+
+  ListPrice.fromJson(Map<String, dynamic> json) {
+    amountInMicros = json['amountInMicros'];
+    currencyCode = json['currencyCode'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['amountInMicros'] = amountInMicros;
+    data['currencyCode'] = currencyCode;
     return data;
   }
 }

@@ -28,7 +28,7 @@ class HomeController extends GetxController {
   specialOffer() async {
     try {
       state.setRxRequestStatusSpecialOffer(RequestStatus.loading);
-      Response response = await homeRepo.getSpecialOfferBooks();
+      Response response = await homeRepo.getFlutterBooks();
       if (response.statusCode == 200) {
         spacialOfferList = HomeModel.fromJson(response.body);
         state.setRxRequestStatusSpecialOffer(RequestStatus.sucsess);

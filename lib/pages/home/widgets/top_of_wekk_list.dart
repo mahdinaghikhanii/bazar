@@ -1,6 +1,5 @@
 import 'package:bazar/pages/home/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
 import '../../../data/model/home_model.dart';
@@ -19,9 +18,8 @@ class TopOfWeekList extends GetView<HomeController> {
           scrollDirection: Axis.horizontal,
           itemCount: controller.topOfWeekList.items!.length,
           itemBuilder: (context, index) {
-            return listItems(
-                controller.spacialOfferList.items![index].volumeInfo!,
-                controller.spacialOfferList.items![index].saleInfo!);
+            return listItems(controller.topOfWeekList.items![index].volumeInfo!,
+                controller.topOfWeekList.items![index].saleInfo!);
           }),
     );
   }
@@ -50,9 +48,9 @@ Widget listItems(VolumeInfo volumeInfo, SaleInfo saleInfo) {
           ),
         ),
         const SizedBox(height: 14),
-        const Text(
-          "\$22",
-          style: TextStyle(
+        Text(
+          "\$${saleInfo.listPrice!.amount.toString()}",
+          style: const TextStyle(
             color: Color(0xFF54408C),
             fontSize: 12,
             fontFamily: 'Roboto',

@@ -35,7 +35,7 @@ class SideBar extends GetView<HomeController> {
                 dotHeight: 8,
                 paintStyle: PaintingStyle.fill,
                 strokeWidth: 1.5,
-                dotColor: Color(0xFFE4DDF7),
+                dotColor: const Color(0xFFE4DDF7),
                 activeDotColor: Get.theme.colorScheme.primary),
           ),
         )
