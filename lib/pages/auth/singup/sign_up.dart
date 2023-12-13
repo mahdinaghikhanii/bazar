@@ -1,4 +1,4 @@
-import 'package:bazar/pages/auth/login/login.dart';
+import '../login/login.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

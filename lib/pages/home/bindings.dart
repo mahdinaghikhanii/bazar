@@ -1,5 +1,5 @@
-import 'package:bazar/data/api/api_client.dart';
-import 'package:bazar/data/repo/home_repo.dart';
+import '../../data/api/api_client.dart';
+import '../../data/repo/home_repo.dart';
 import 'package:get/get.dart';
 
 import 'controller.dart';

@@ -1,4 +1,4 @@
-import 'package:bazar/pages/auth/singup/sign_up.dart';
+import '../singup/sign_up.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

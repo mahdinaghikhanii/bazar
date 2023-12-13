@@ -41,6 +41,8 @@ dependencies:
   svg_flutter: ^0.0.1
   http: ^1.1.0
   confetti: ^0.7.0
+  skeleton_text: ^3.0.1
+  
 
 
 dev_dependencies:

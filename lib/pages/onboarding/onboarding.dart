@@ -1,7 +1,7 @@
-import 'package:bazar/pages/auth/login/login.dart';
-import 'package:bazar/pages/onboarding/widgets/first.dart';
-import 'package:bazar/pages/onboarding/widgets/secound.dart';
-import 'package:bazar/pages/onboarding/widgets/therd.dart';
+import '../auth/login/login.dart';
+import 'widgets/first.dart';
+import 'widgets/secound.dart';
+import 'widgets/therd.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

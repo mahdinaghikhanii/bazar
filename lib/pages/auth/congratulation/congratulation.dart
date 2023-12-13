@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:bazar/common/constans/images.dart';
+import '../../../common/constans/images.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

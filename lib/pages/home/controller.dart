@@ -1,6 +1,6 @@
-import 'package:bazar/data/api/api_checker.dart';
-import 'package:bazar/data/api/state_api_enum.dart';
-import 'package:bazar/data/repo/home_repo.dart';
+import '../../data/api/api_checker.dart';
+import '../../data/api/state_api_enum.dart';
+import '../../data/repo/home_repo.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -29,6 +29,7 @@ class HomeController extends GetxController {
     try {
       state.setRxRequestStatusSpecialOffer(RequestStatus.loading);
       Response response = await homeRepo.getFlutterBooks();
+      await Future.delayed(const Duration(seconds: 3));
       if (response.statusCode == 200) {
         spacialOfferList = HomeModel.fromJson(response.body);
         state.setRxRequestStatusSpecialOffer(RequestStatus.sucsess);
@@ -46,6 +47,7 @@ class HomeController extends GetxController {
     try {
       state.setRxRequestStatusTopOfWeek(RequestStatus.loading);
       Response response = await homeRepo.getSpecialOfferBooks();
+      await Future.delayed(const Duration(seconds: 6));
       if (response.statusCode == 200) {
         topOfWeekList = HomeModel.fromJson(response.body);
         state.setRxRequestStatusTopOfWeek(RequestStatus.sucsess);

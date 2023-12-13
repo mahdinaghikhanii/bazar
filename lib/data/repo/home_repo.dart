@@ -1,5 +1,5 @@
-import 'package:bazar/common/constans/constans.dart';
-import 'package:bazar/data/api/api_client.dart';
+import '../../common/constans/constans.dart';
+import '../api/api_client.dart';
 import 'package:get/get.dart';
 
 class HomeRepo {

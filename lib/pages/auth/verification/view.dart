@@ -1,5 +1,5 @@
-import 'package:bazar/common/routes/routes.dart';
-import 'package:bazar/common/widgets/custom_snackbar.dart';
+import '../../../common/routes/routes.dart';
+import '../../../common/widgets/custom_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
