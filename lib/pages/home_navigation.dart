@@ -2,6 +2,7 @@
 import 'package:bazar/data/api/api_client.dart';
 import 'package:bazar/data/repo/home_repo.dart';
 import 'package:bazar/pages/home/index.dart';
+import 'package:bazar/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -88,7 +89,7 @@ class _HomeNavigationPageState extends State<HomeNavigationPage> {
         break;
       case profileIndex:
         // Get.put(ProfileController(ProfileRepo(ApiClient())));
-        selectedScreen = const HomePage();
+        selectedScreen = const ProfilePages();
         break;
       default:
         selectedScreen = const SizedBox();
