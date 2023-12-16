@@ -4,5 +4,6 @@ class AppRoutes {
   static const congratulation = '/congratulation';
   static const myAccount = '/myAccount';
   static const login = '/login';
+  static const address = '/address';
 //  static const
 }

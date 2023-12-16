@@ -1,10 +1,10 @@
-import '../../data/api/api_checker.dart';
-import '../../data/api/state_api_enum.dart';
-import '../../data/repo/home_repo.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../../data/api/api_checker.dart';
+import '../../data/api/state_api_enum.dart';
 import '../../data/model/home_model.dart';
+import '../../data/repo/home_repo.dart';
 import 'index.dart';
 
 class HomeController extends GetxController {

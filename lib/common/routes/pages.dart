@@ -1,5 +1,6 @@
-import 'package:bazar/pages/auth/login/login.dart';
-import 'package:bazar/pages/profile/my_account/my_account.dart';
+import '../../pages/auth/login/login.dart';
+import '../../pages/profile/address/index.dart';
+import '../../pages/profile/my_account/my_account.dart';
 
 import 'routes.dart';
 import '../../pages/auth/congratulation/congratulation.dart';
@@ -20,6 +21,10 @@ class AppPages {
     GetPage(
         name: AppRoutes.homeNavigation, page: () => const HomeNavigationPage()),
     GetPage(name: AppRoutes.myAccount, page: () => const MyAccountPages()),
-    GetPage(name: AppRoutes.login, page: () => const LoginPage())
+    GetPage(name: AppRoutes.login, page: () => const LoginPage()),
+    GetPage(
+        name: AppRoutes.address,
+        page: () => const AddressPage(),
+        binding: AddressBinding())
   ];
 }

@@ -1,4 +1,4 @@
-import 'package:bazar/common/routes/routes.dart';
+import '../../../common/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';

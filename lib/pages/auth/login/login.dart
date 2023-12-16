@@ -1,7 +1,8 @@
-import '../singup/sign_up.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../singup/sign_up.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

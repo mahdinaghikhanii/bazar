@@ -1,4 +1,4 @@
-import 'package:bazar/pages/home/index.dart';
+import '../index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:skeleton_text/skeleton_text.dart';

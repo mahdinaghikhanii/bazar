@@ -1,10 +1,11 @@
 import 'dart:math';
 
-import '../../../common/constans/images.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:svg_flutter/svg.dart';
+
+import '../../../common/constans/images.dart';
 
 class CongratulationPage extends StatefulWidget {
   const CongratulationPage({super.key});

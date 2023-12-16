@@ -1,6 +1,6 @@
-import 'package:bazar/common/constans/images.dart';
-import 'package:bazar/common/routes/routes.dart';
-import 'package:bazar/pages/profile/widgets/custom_container.dart';
+import '../../common/constans/images.dart';
+import '../../common/routes/routes.dart';
+import 'widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -92,7 +92,9 @@ class ProfilePages extends StatelessWidget {
                 icon: Images.personIocn,
                 ontap: () => Get.toNamed(AppRoutes.myAccount)),
             CustomContainerWidgets(
-                title: "Address", icon: Images.addressIcon, ontap: () {}),
+                title: "Address",
+                icon: Images.addressIcon,
+                ontap: () => Get.toNamed(AppRoutes.address)),
             CustomContainerWidgets(
                 title: "Offers & Promos",
                 icon: Images.offresIcon,

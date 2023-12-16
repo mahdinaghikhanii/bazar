@@ -11,6 +11,7 @@ class Images {
   static const String favoriteIcon = 'assets/favorite.svg';
   static const String orderHistoryIcon = 'assets/order_history.svg';
   static const String helpCenterIcon = 'assets/chat.svg';
+  static const String detailAddress = 'assets/detail_addres.svg';
 
   /// Bottom Navigation Icons
   static const String homeIcon = 'assets/home.svg';

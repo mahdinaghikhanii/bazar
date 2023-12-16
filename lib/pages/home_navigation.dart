@@ -4,9 +4,7 @@ import 'package:bazar/data/repo/home_repo.dart';
 import 'package:bazar/pages/home/index.dart';
 import 'package:bazar/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'package:svg_flutter/svg_flutter.dart';
 
 import '../common/constans/images.dart';
