@@ -44,7 +44,12 @@ dependencies:
   map_picker: ^0.0.3
   google_maps_flutter: ^2.2.6
   http: ^1.1.0
+  image_picker: ^1.0.5
   latlng: ^0.2.1
+  cached_network_image: ^3.3.0
+  favorite_button: ^0.0.4
+  flutter_rating_bar: ^4.0.1
+
   
 
 

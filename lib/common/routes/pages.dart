@@ -1,3 +1,6 @@
+import 'package:bazar/data/model/home_model.dart';
+import 'package:bazar/pages/detail/detail.dart';
+
 import '../../pages/auth/login/login.dart';
 import '../../pages/profile/address/index.dart';
 import '../../pages/profile/my_account/my_account.dart';
@@ -25,6 +28,6 @@ class AppPages {
     GetPage(
         name: AppRoutes.address,
         page: () => const AddressPage(),
-        binding: AddressBinding())
+        binding: AddressBinding()),
   ];
 }

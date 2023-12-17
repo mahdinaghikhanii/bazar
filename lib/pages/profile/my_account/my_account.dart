@@ -1,9 +1,34 @@
+import 'dart:io';
+
+import 'package:image_picker/image_picker.dart';
+
 import '../../../common/constans/images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MyAccountPages extends StatelessWidget {
+class MyAccountPages extends StatefulWidget {
   const MyAccountPages({super.key});
+
+  @override
+  State<MyAccountPages> createState() => _MyAccountPagesState();
+}
+
+class _MyAccountPagesState extends State<MyAccountPages> {
+  File? _image;
+  Future<void> _getImage() async {
+    final imagePicker = ImagePicker();
+    final pickedFile = await imagePicker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -24,29 +49,50 @@ class MyAccountPages extends StatelessWidget {
               )),
         ),
         body: SingleChildScrollView(
-          child: Column(children: [
-            Center(
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(70),
-                    child: Image.asset(
-                      Images.myImageProfile,
-                      width: 100,
-                      height: 100,
-                    ))),
-            const SizedBox(height: 2),
-            TextButton(
-                onPressed: () {},
-                child: const Text('Change Picture',
-                    style: TextStyle(
-                        color: Color(0xFF54408C),
-                        fontSize: 16,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w600,
-                        height: 0.09))),
-            inputAndTitle(context),
-            saveChangesButton()
-          ]),
-        ));
+            child: Column(children: [
+          Center(
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(70),
+                  child: _image == null
+                      ? Image.asset(
+                          Images.personIcon,
+                          width: 100,
+                          height: 100,
+                        )
+                      : Image.file(_image!,
+                          width: 100, height: 100, fit: BoxFit.cover))),
+          const SizedBox(height: 2),
+          TextButton(
+              onPressed: () => _getImage(),
+              child: const Text('Change Picture',
+                  style: TextStyle(
+                      color: Color(0xFF54408C),
+                      fontSize: 16,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w600,
+                      height: 0.09))),
+          inputAndTitle(context),
+          Container(
+              margin: const EdgeInsets.only(left: 24, right: 24, top: 40),
+              width: Get.width,
+              height: 48,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Get.theme.colorScheme.primary),
+                  onPressed: () {
+                    setState(() {
+                      loading = true;
+                    });
+
+                    Future.delayed(const Duration(seconds: 2))
+                        .then((value) => Navigator.pop(context));
+                  },
+                  child: loading == true
+                      ? const CircularProgressIndicator(color: Colors.white)
+                      : const Center(
+                          child: Text('Save Changes',
+                              style: TextStyle(color: Colors.white)))))
+        ])));
   }
 }
 
@@ -74,6 +120,7 @@ Widget inputAndTitle(context) {
               borderRadius: BorderRadiusDirectional.circular(8)),
           // ignore: prefer_const_constructors
           child: TextField(
+            controller: TextEditingController(text: "Mahdi"),
             keyboardType: TextInputType.visiblePassword,
             style: const TextStyle(
               color: Colors.black,
@@ -269,20 +316,5 @@ Widget inputAndTitle(context) {
         ),
       ],
     ),
-  );
-}
-
-Widget saveChangesButton() {
-  return Container(
-    margin: const EdgeInsets.only(left: 24, right: 24, top: 40),
-    width: Get.width,
-    height: 48,
-    child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            backgroundColor: Get.theme.colorScheme.primary),
-        onPressed: () {},
-        child: Center(
-            child:
-                Text('Save Changes', style: TextStyle(color: Colors.white)))),
   );
 }

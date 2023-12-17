@@ -1,3 +1,6 @@
+import 'package:bazar/common/routes/routes.dart';
+import 'package:bazar/pages/detail/detail.dart';
+
 import '../index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,39 +22,42 @@ class TopOfWeekList extends GetView<HomeController> {
           scrollDirection: Axis.horizontal,
           itemCount: controller.topOfWeekList.items!.length,
           itemBuilder: (context, index) {
-            return listItems(controller.topOfWeekList.items![index].volumeInfo!,
-                controller.topOfWeekList.items![index].saleInfo!);
+            return listItems(controller.topOfWeekList.items![index], context);
           }),
     );
   }
 }
 
-Widget listItems(VolumeInfo volumeInfo, SaleInfo saleInfo) {
+Widget listItems(Items items, context) {
   return Container(
       margin: const EdgeInsets.only(right: 9),
       width: 127,
       height: 200,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Image.network(volumeInfo.imageLinks!.smallThumbnail!,
-            fit: BoxFit.cover, height: 180),
-        const SizedBox(height: 6),
-        Text(volumeInfo.title!,
-            maxLines: 1,
-            style: const TextStyle(
-                color: Color(0xFF121212),
-                fontSize: 14,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w500)),
-        const SizedBox(height: 14),
-        Text("\$${saleInfo.listPrice!.amount.toString()}",
-            style: const TextStyle(
-                color: Color(0xFF54408C),
-                fontSize: 12,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w700,
-                height: 0.11,
-                letterSpacing: 0.30))
-      ]));
+      child: InkWell(
+        onTap: () => Navigator.push(context,
+            MaterialPageRoute(builder: (context) => DetailPage(items: items))),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Image.network(items.volumeInfo!.imageLinks!.smallThumbnail!,
+              fit: BoxFit.cover, height: 180),
+          const SizedBox(height: 6),
+          Text(items.volumeInfo!.title!,
+              maxLines: 1,
+              style: const TextStyle(
+                  color: Color(0xFF121212),
+                  fontSize: 14,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w500)),
+          const SizedBox(height: 14),
+          Text("\$${items.saleInfo!.listPrice!.amount.toString()}",
+              style: const TextStyle(
+                  color: Color(0xFF54408C),
+                  fontSize: 12,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w700,
+                  height: 0.11,
+                  letterSpacing: 0.30))
+        ]),
+      ));
 }
 
 topOfWeekListSkeleton() {
